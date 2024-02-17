@@ -12,21 +12,49 @@ class EventView extends StatelessWidget {
       appBar: AppBar(
         title: Text('Event Details'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Title: ${event.title}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Card(
+              margin: EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      event.title,
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 8.0),
+                    child: Text(
+                      event.date,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity, // Max width of the card
+                    height: 200,
+                    child: Image.network(
+                      event.imageUrl,
+                      fit: BoxFit.fitWidth, // Adjust the image fit
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      event.description,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 8),
-            Text('Date: ${event.date}'),
-            SizedBox(height: 8),
-            Text('Description: ${event.description}'),
-            SizedBox(height: 8),
-            // You can display other event information here
           ],
         ),
       ),
