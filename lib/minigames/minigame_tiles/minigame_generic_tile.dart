@@ -23,7 +23,7 @@ class _MinigameGenericTile extends State<MinigameGenericTile> {
                 onTap: () {
                   setState(() {
                     _tapped = !_tapped;
-                    _scale = _tapped ? 1.1 : 1.0;
+                    _scale = _tapped ? 1.05 : 1.0;
                     _elevation = _tapped ? 10.0 : 5.0;
                   });
                 },
