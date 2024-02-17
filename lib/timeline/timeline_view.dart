@@ -1,3 +1,4 @@
+import 'package:bitnbuildfront/minigames/minigame_screens/minigame_trivia.dart';
 import 'package:bitnbuildfront/timeline/timeline_list.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,15 @@ class TimelineView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add your onPressed functionality here
+          Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => 
+                        const MinigameTrivia(
+                            currentProgress: 1,
+                            answerId: 3,
+                            maxProgress: 10,
+                            question: 'dopasuj pary',)
+                        )
+          );
         },
         child: const Icon(Icons.gamepad),
       ),
