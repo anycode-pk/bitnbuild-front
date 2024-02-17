@@ -4,11 +4,11 @@ import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_generic_tile.da
 class MinigameImageTile extends StatefulWidget {
   const MinigameImageTile(
       {super.key,
-      required this.tileImage,
+      required this.tileImageURL,
       required this.tileEventId,
       required this.disabled,
       required this.callback});
-  final AssetImage tileImage;
+  final String tileImageURL;
   final int tileEventId;
   final Function callback;
   final bool disabled;
@@ -25,7 +25,7 @@ class _MinigameImageTile extends State<MinigameImageTile> {
       disabled: widget.disabled,
       tileEventId: widget.tileEventId,
       tileContents: Image(
-        image: widget.tileImage,
+        image: Image.network(widget.tileImageURL).image,
         fit: BoxFit.cover,
       ),
     );

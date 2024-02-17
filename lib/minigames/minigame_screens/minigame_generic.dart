@@ -28,6 +28,11 @@ class _MinigameGeneric extends State<MinigameGeneric> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              IconButton(onPressed: () {
+                for(int i = 0; i < widget.currentProgress; i++) {
+                  Navigator.pop(context);
+                }
+                }, icon: Icon(Icons.close)),
               MinigameProgressTracker(
                   currentProgress: widget.currentProgress,
                   maxProgress: widget.maxProgress),
