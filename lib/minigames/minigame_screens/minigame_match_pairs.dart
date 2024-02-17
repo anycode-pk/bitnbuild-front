@@ -21,6 +21,7 @@ class MinigameMatchPairs extends StatefulWidget {
 }
 
 class _MinigameMatchPairs extends State<MinigameMatchPairs> {
+  int _selectedId = 0;
   @override
   Widget build(BuildContext context) {
     return MinigameGeneric(
@@ -29,17 +30,19 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
         maxProgress: widget.maxProgress,
         minigameContent:
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          const Expanded(
+          Expanded(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               MinigameImageTextTile(
+                callback: (val) => setState(() => _selectedId = val),
                 disabled: false,
                 tileImage: AssetImage('kazimierz-wielki.jpg'),
                 tileText: 'kazimierz wielki',
                 tileEventId: 1,
               ),
               MinigameImageTile(
+                callback: (val) => setState(() => _selectedId = val),
                 disabled: false,
                 tileEventId: 1,
                 tileImage: AssetImage('mieszko-I.jpg'),
@@ -50,12 +53,14 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                const MinigameTextTile(
+                MinigameTextTile(
+                  callback: (val) => setState(() => _selectedId = val),
                   disabled: true,
                   tileEventId: 1,
                   tileText: 'mieszko 1',
                 ),
                 MinigameDateTile(
+                  callback: (val) => setState(() => _selectedId = val),
                   disabled: false,
                   tileEventId: 1,
                   tileDate: DateTime.parse("20240217"),

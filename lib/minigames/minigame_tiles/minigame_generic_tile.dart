@@ -5,20 +5,18 @@ class MinigameGenericTile extends StatefulWidget {
       {super.key,
       required this.tileContents,
       required this.tileEventId,
+      required this.callback,
       required this.disabled});
   final Widget tileContents;
   final int tileEventId;
   final bool disabled;
+  final Function callback;
 
   @override
   State<MinigameGenericTile> createState() => _MinigameGenericTile();
 }
 
 class _MinigameGenericTile extends State<MinigameGenericTile> {
-  double _scale = 1.0;
-  double _elevation = 5.0;
-  bool _tapped = false;
-
   ColorFilter _getDisabledColorFilter() {
     double opacity = 0.0;
     if (widget.disabled) {
@@ -31,30 +29,36 @@ class _MinigameGenericTile extends State<MinigameGenericTile> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        flex: 1,
-        child: AspectRatio(
-            aspectRatio: 1,
-            child: GestureDetector(
+      flex: 1,
+      child: AspectRatio(
+          aspectRatio: 1,
+          child: Focus(child: Builder(builder: (BuildContext context) {
+            final FocusNode focusNode = Focus.of(context);
+            final bool hasFocus = focusNode.hasFocus;
+            return GestureDetector(
                 onTap: () {
-                  setState(() {
-                    _tapped = !_tapped;
-                    _scale = _tapped ? 1.05 : 1.0;
-                    _elevation = _tapped ? 10.0 : 5.0;
-                  });
+                  if (hasFocus) {
+                    focusNode.unfocus();
+                  } else {
+                    focusNode.requestFocus();
+                    widget.callback(widget.tileEventId);
+                  }
                 },
                 child: AnimatedScale(
-                    scale: _scale,
+                    scale: hasFocus ? 1.05 : 1.0,
                     curve: Curves.decelerate,
                     duration: const Duration(milliseconds: 60),
                     child: Card(
                       borderOnForeground: true,
-                      elevation: _elevation,
+                      elevation: hasFocus ? 10.0 : 5.0,
                       margin: const EdgeInsets.all(16.0),
                       clipBehavior: Clip.antiAlias,
                       semanticContainer: true,
                       child: ColorFiltered(
                           colorFilter: _getDisabledColorFilter(),
                           child: widget.tileContents),
-                    )))));
+                    )));
+          }))),
+    );
   }
 }

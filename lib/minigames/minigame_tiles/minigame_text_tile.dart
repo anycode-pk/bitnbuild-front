@@ -3,7 +3,12 @@ import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_generic_tile.da
 
 class MinigameTextTile extends StatefulWidget {
   const MinigameTextTile(
-      {super.key, required this.tileText, required this.tileEventId, required this.disabled});
+      {super.key,
+      required this.tileText,
+      required this.tileEventId,
+      required this.disabled,
+      required this.callback});
+  final Function callback;
   final String tileText;
   final int tileEventId;
   final bool disabled;
@@ -16,6 +21,7 @@ class _MinigameTextTile extends State<MinigameTextTile> {
   @override
   Widget build(BuildContext context) {
     return MinigameGenericTile(
+        callback: widget.callback,
         disabled: widget.disabled,
         tileEventId: widget.tileEventId,
         tileContents: Center(
