@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../module.dart';
+import 'module.dart';
 import '../timeline/timeline_view.dart';
 
 class ModuleCard extends StatelessWidget {
@@ -14,8 +14,12 @@ class ModuleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const TimelineView()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => TimelineView(
+                        moduleId: module.moduleId,
+                      )));
         },
         child: Card(
           margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
