@@ -53,11 +53,6 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
         selectedIdLeft = val;
         lastClicked = 1;
       }
-      print('clicked left');
-      print('last clicked = $lastClicked');
-      print('selectedidleft = $selectedIdLeft');
-      print('selectedidright = $selectedIdRight');
-      print('val = $val');
     });
   }
 
@@ -78,11 +73,6 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
         selectedIdRight = val;
         lastClicked = 2;
       }
-      print('clicked right');
-      print('last clicked = $lastClicked');
-      print('selectedidleft = $selectedIdLeft');
-      print('selectedidright = $selectedIdRight');
-      print('val = $val');
     });
   }
 
