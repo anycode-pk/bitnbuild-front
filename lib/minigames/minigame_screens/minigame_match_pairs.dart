@@ -34,11 +34,13 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               MinigameImageTextTile(
+                disabled: false,
                 tileImage: AssetImage('kazimierz-wielki.jpg'),
                 tileText: 'kazimierz wielki',
                 tileEventId: 1,
               ),
               MinigameImageTile(
+                disabled: false,
                 tileEventId: 1,
                 tileImage: AssetImage('mieszko-I.jpg'),
               ),
@@ -49,10 +51,12 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                 const MinigameTextTile(
+                  disabled: true,
                   tileEventId: 1,
                   tileText: 'mieszko 1',
                 ),
                 MinigameDateTile(
+                  disabled: false,
                   tileEventId: 1,
                   tileDate: DateTime.parse("20240217"),
                 ),

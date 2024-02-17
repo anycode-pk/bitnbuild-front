@@ -3,9 +3,10 @@ import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_generic_tile.da
 
 class MinigameDateTile extends StatefulWidget {
   const MinigameDateTile(
-      {super.key, required this.tileDate, required this.tileEventId});
+      {super.key, required this.tileDate, required this.tileEventId, required this.disabled});
   final DateTime tileDate;
   final int tileEventId;
+  final bool disabled;
 
   @override
   State<MinigameDateTile> createState() => _MinigameDateTile();
@@ -15,6 +16,7 @@ class _MinigameDateTile extends State<MinigameDateTile> {
   @override
   Widget build(BuildContext context) {
     return MinigameGenericTile(
+      disabled: widget.disabled,
       tileEventId: widget.tileEventId,
       tileContents: 
         Center(

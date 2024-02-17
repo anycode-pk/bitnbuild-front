@@ -18,11 +18,13 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
   Widget build(BuildContext context) {
     return MinigameGeneric(question: widget.question, currentProgress: widget.currentProgress, maxProgress: widget.maxProgress, minigameContent: const Column (mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
               MinigameImageTextTile(
+                disabled: false,
                 tileImage: AssetImage('kazimierz-wielki.jpg'),
                 tileText: 'kazimierz wielki',
                 tileEventId: 1,
               ),
               MinigameImageTextTile(
+                disabled: true,
                 tileEventId: 1,
                 tileImage: AssetImage('mieszko-I.jpg'),
                 tileText: 'mieszko 1',

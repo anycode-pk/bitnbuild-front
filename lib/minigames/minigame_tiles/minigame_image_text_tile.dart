@@ -6,10 +6,12 @@ class MinigameImageTextTile extends StatefulWidget {
       {super.key,
       required this.tileImage,
       required this.tileText,
-      required this.tileEventId});
+      required this.tileEventId,
+      required this.disabled});
   final AssetImage tileImage;
   final String tileText;
   final int tileEventId;
+  final bool disabled;
 
   @override
   State<MinigameImageTextTile> createState() => _MinigameImageTextTile();
@@ -19,6 +21,7 @@ class _MinigameImageTextTile extends State<MinigameImageTextTile> {
   @override
   Widget build(BuildContext context) {
     return MinigameGenericTile(
+      disabled: widget.disabled,
       tileEventId: widget.tileEventId,
         tileContents: Stack(
       fit: StackFit.expand,

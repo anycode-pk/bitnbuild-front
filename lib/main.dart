@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bitnbuildfront/minigames/minigame_screens/minigame_higher_lower.dart';
 import 'package:bitnbuildfront/minigames/minigame_screens/minigame_match_pairs.dart';
+import 'package:bitnbuildfront/minigames/minigame_screens/minigame_trivia.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
       //home: const MinigameHigherLower(question: 'Which was earlier???', currentProgress: 7, maxProgress: 10),
-      home: const MinigameMatchPairs(question: 'Match Pairs!', currentProgress: 6, maxProgress: 10),
+      //home: const MinigameMatchPairs(question: 'Match Pairs!', currentProgress: 6, maxProgress: 10),
+      home: const MinigameTrivia(question: 'kto zostawil polske murowanom', currentProgress: 6, maxProgress: 10),
     );
   }
 }
