@@ -20,8 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // Define routes for different parts of your app
         '/': (context) =>
-            const MinigameHigherLower(
-              answerId: 2,
+            const MinigameMatchPairs(
               currentProgress: 6,
               maxProgress: 10,
               question: 'kto zyl wczesniej',

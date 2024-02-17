@@ -21,7 +21,23 @@ class MinigameMatchPairs extends StatefulWidget {
 }
 
 class _MinigameMatchPairs extends State<MinigameMatchPairs> {
-  int _selectedId = 0;
+  int _selectedId_left = 0;
+  int _selectedId_right = 0;
+  bool _submitted = false;
+  Color _answerColor = Colors.blue;
+
+  void _checkAnswer() {
+    setState(() {
+      if (!_submitted) {
+        if (_selectedId_left == _selectedId_right) {
+          _answerColor = Colors.green;
+        } else {
+          _answerColor = Colors.red;
+        }
+        _submitted = true;
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MinigameGeneric(
@@ -29,23 +45,26 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
         currentProgress: widget.currentProgress,
         maxProgress: widget.maxProgress,
         minigameContent:
+        Column(
+          children: <Widget>[
+        Expanded( child:
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
           Expanded(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               MinigameImageTextTile(
-                callback: (val) => setState(() => _selectedId = val),
+                callback: (val) => setState(() => _selectedId_left = val),
                 disabled: false,
-                tileImage: AssetImage('kazimierz-wielki.jpg'),
+                tileImageURL: 'https://picsum.photos/seed/picsum/200',
                 tileText: 'kazimierz wielki',
                 tileEventId: 1,
               ),
               MinigameImageTile(
-                callback: (val) => setState(() => _selectedId = val),
+                callback: (val) => setState(() => _selectedId_left = val),
+                tileImageURL: 'https://picsum.photos/seed/picsum/200',
                 disabled: false,
-                tileEventId: 1,
-                tileImage: AssetImage('mieszko-I.jpg'),
+                tileEventId: 2,
               ),
             ],
           )),
@@ -54,18 +73,27 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                 MinigameTextTile(
-                  callback: (val) => setState(() => _selectedId = val),
+                  callback: (val) => setState(() => _selectedId_right = val),
                   disabled: true,
                   tileEventId: 1,
                   tileText: 'mieszko 1',
                 ),
                 MinigameDateTile(
-                  callback: (val) => setState(() => _selectedId = val),
+                  callback: (val) => setState(() => _selectedId_right = val),
                   disabled: false,
-                  tileEventId: 1,
+                  tileEventId: 2,
                   tileDate: DateTime.parse("20240217"),
                 ),
               ]))
-        ]));
+        ])), 
+            FilledButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll<Color>(_answerColor),
+              ),
+              onPressed: _checkAnswer,
+              child: Text("Submit"),
+            ),
+        ])
+        );
   }
 }

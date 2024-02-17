@@ -4,12 +4,12 @@ import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_generic_tile.da
 class MinigameImageTextTile extends StatefulWidget {
   const MinigameImageTextTile(
       {super.key,
-      required this.tileImage,
+      required this.tileImageURL,
       required this.tileText,
       required this.tileEventId,
       required this.callback,
       required this.disabled});
-  final AssetImage tileImage;
+  final String tileImageURL;
   final String tileText;
   final int tileEventId;
   final bool disabled;
@@ -30,7 +30,7 @@ class _MinigameImageTextTile extends State<MinigameImageTextTile> {
           fit: StackFit.expand,
           children: <Widget>[
             Image(
-              image: widget.tileImage,
+              image: Image.network(widget.tileImageURL).image,
               color: Colors.white54,
               colorBlendMode: BlendMode.screen,
               fit: BoxFit.cover,
