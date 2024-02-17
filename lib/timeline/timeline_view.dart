@@ -2,7 +2,9 @@ import 'package:bitnbuildfront/timeline/timeline_list.dart';
 import 'package:flutter/material.dart';
 
 class TimelineView extends StatelessWidget {
-  const TimelineView({super.key});
+  final int moduleId;
+
+  const TimelineView({super.key, required this.moduleId});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,9 @@ class TimelineView extends StatelessWidget {
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 600),
-          child: const TimelineList(),
+          child: TimelineList(
+            moduleId: moduleId,
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

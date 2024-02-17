@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../event.dart'; // Import the Event class
+import 'event.dart'; // Import the Event class
 
 class EventView extends StatelessWidget {
   final Event event;

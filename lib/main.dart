@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:bitnbuildfront/minigames/minigame_higher_lower/minigame_higher_lower.dart';
 
 // Import your segmented list module file
 import 'module/module_view.dart';
@@ -19,7 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // Define routes for different parts of your app
-        '/': (context) => const ModuleView(), // SegmentedListModule as initial route
+        '/': (context) =>
+            const ModuleView(), // SegmentedListModule as initial route
         // Add more routes if needed
       },
     );
