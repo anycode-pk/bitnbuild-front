@@ -23,17 +23,16 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
   int _selectedId = 0;
   bool _submitted = false;
   Color _answerColor = Colors.blue;
-  
+
   void _checkAnswer() {
     setState(() {
-      if(!_submitted) {
-      if(_selectedId == widget.answerId) {
-        _answerColor = Colors.green;
-      }
-      else {
-        _answerColor = Colors.red;
-      }  
-    _submitted = true;
+      if (!_submitted) {
+        if (_selectedId == widget.answerId) {
+          _answerColor = Colors.green;
+        } else {
+          _answerColor = Colors.red;
+        }
+        _submitted = true;
       }
     });
   }
@@ -50,7 +49,7 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
               MinigameImageTextTile(
                 callback: (val) => setState(() => _selectedId = val),
                 disabled: _submitted,
-                tileImage: AssetImage('kazimierz-wielki.jpg'),
+                tileImageURL: 'https://picsum.photos/seed/picsum/200',
                 tileText: 'kazimierz wielki',
                 tileEventId: 1,
               ),
@@ -58,12 +57,13 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
                 callback: (val) => setState(() => _selectedId = val),
                 disabled: _submitted,
                 tileEventId: 2,
-                tileImage: AssetImage('mieszko-I.jpg'),
+                tileImageURL: 'https://picsum.photos/seed/picsum/200',
                 tileText: 'mieszko 1',
               ),
               FilledButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(_answerColor),
+                  backgroundColor:
+                      MaterialStatePropertyAll<Color>(_answerColor),
                 ),
                 onPressed: _checkAnswer,
                 child: Text("Submit"),
