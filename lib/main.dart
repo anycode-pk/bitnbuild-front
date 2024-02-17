@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // Define routes for different parts of your app
-        '/': (context) =>
-            const MinigameMatchPairs(
+        '/': (context) => const MinigameMatchPairs(
               currentProgress: 6,
               maxProgress: 10,
-              question: 'kto zyl wczesniej',
+              tileIds: <int>[1, 5, 9, 10],
+              question: 'dopasuj pary',
             ), // SegmentedListModule as initial route
         // Add more routes if needed
       },
