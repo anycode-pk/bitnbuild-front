@@ -10,7 +10,7 @@ class EventView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Event Details'),
+        title: const Text('Details'),
       ),
       body: SingleChildScrollView(
         child: Column(
