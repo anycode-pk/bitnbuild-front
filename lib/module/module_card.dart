@@ -5,7 +5,8 @@ class ModuleCard extends StatelessWidget {
   final String description;
   final String imageUrl;
 
-  const ModuleCard({super.key, 
+  const ModuleCard({
+    super.key,
     required this.title,
     required this.description,
     required this.imageUrl,

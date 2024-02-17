@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'module_card.dart';
 import '../timeline/timeline_view.dart'; // Import the TimelineView
+import '../module.dart';
 
 class ModuleList extends StatelessWidget {
   const ModuleList({super.key});
@@ -8,7 +9,7 @@ class ModuleList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 20, // Example item count
+      itemCount: ModulePlaceholder.list.length,
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
@@ -20,9 +21,9 @@ class ModuleList extends StatelessWidget {
             );
           },
           child: ModuleCard(
-            title: "Module $index",
-            description: "Description of Module $index",
-            imageUrl: "https://picsum.photos/seed/$index/200",
+            title: ModulePlaceholder.list[index].title,
+            description: ModulePlaceholder.list[index].description,
+            imageUrl: ModulePlaceholder.list[index].imageUrl,
           ),
         );
       },
