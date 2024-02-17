@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../event.dart';
+import '../event/event.dart';
 import '../event/event_view.dart';
 
 class TimelineEvent extends StatelessWidget {
@@ -11,7 +11,6 @@ class TimelineEvent extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          Event event = EventPlaceholder.list[0];
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -22,10 +21,7 @@ class TimelineEvent extends StatelessWidget {
         child: SizedBox(
           width: 200, // Fixed width for the card
           child: Card(
-            child: ListTile(
-              title: Text(event.title),
-              subtitle: const Text('Event details...'),
-            ),
+            child: ListTile(title: Text(event.title)),
           ),
         ));
   }

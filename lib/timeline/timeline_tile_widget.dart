@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
-import '../event.dart';
+import '../event/event.dart';
 import 'timeline_event.dart';
 
 class TimelineTileWidget extends StatelessWidget {

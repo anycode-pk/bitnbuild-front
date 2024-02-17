@@ -14,6 +14,17 @@ class Event {
     required this.imageUrl,
     required this.description,
   });
+
+  factory Event.fromJson(Map<String, dynamic> json) {
+    return Event(
+      eventId: json['id'] as int,
+      moduleId: json['module_id'] as int,
+      date: json['date'] as String,
+      title: json['title'] as String,
+      imageUrl: json['image_url'] as String,
+      description: json['description'] as String,
+    );
+  }
 }
 
 class EventPlaceholder {

@@ -10,6 +10,15 @@ class Module {
     required this.imageUrl,
     required this.description,
   });
+
+  factory Module.fromJson(Map<String, dynamic> json) {
+    return Module(
+      moduleId: json['id'] as int,
+      title: json['title'] as String,
+      imageUrl: json['image_url'] as String,
+      description: json['description'] as String,
+    );
+  }
 }
 
 class ModulePlaceholder {
