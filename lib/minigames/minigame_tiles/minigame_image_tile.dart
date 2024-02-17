@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_generic_tile.dart';
 
 class MinigameImageTile extends StatefulWidget {
   const MinigameImageTile(
@@ -13,17 +14,11 @@ class MinigameImageTile extends StatefulWidget {
 class _MinigameImageTile extends State<MinigameImageTile> {
   @override
   Widget build(BuildContext context) {
-      return Expanded(
-        flex: 1,
-    child: AspectRatio(
-        aspectRatio: 1,
-        child: Card(
-          borderOnForeground: true,
-          margin: const EdgeInsets.all(16.0),
-          child: Image(image: widget.tileImage,
-          fit: BoxFit.cover,),
-        )
-      )
+    return MinigameGenericTile(
+      tileContents: Image(
+        image: widget.tileImage,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

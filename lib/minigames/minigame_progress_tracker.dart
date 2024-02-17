@@ -13,8 +13,10 @@ class MinigameProgressTracker extends StatefulWidget {
 class _MinigameProgressTracker extends State<MinigameProgressTracker> {
   @override
   Widget build(BuildContext context) {
-      return LinearProgressIndicator(
-        value: widget.currentProgress/widget.maxProgress,
-    );
+    return Padding(
+        padding: EdgeInsets.all(16.0),
+        child: LinearProgressIndicator(
+          value: widget.currentProgress / widget.maxProgress,
+        ));
   }
 }
