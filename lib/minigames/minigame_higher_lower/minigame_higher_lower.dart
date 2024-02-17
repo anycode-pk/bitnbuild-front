@@ -1,6 +1,7 @@
 import 'package:bitnbuildfront/minigames/minigame_progress_tracker.dart';
 import 'package:flutter/material.dart';
 import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_image_text_tile.dart';
+import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_text_tile.dart';
 import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_image_tile.dart';
 
 
@@ -40,6 +41,10 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
               const MinigameImageTile(
                     tileEventId: 1,
                     tileImage: AssetImage('mieszko-I.jpg'),
+              ),
+              const MinigameTextTile(
+                    tileEventId: 1,
+                    tileText: 'mieszko 1',
               ),
             ],
          

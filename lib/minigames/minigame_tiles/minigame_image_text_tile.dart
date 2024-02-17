@@ -33,6 +33,7 @@ class _MinigameImageTextTile extends State<MinigameImageTextTile> {
           child: Text(
             widget.tileText,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
           ),
         )
       ],
