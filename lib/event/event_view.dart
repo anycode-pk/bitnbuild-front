@@ -10,14 +10,14 @@ class EventView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Event Details'),
+        title: const Text('Details'),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
-              margin: EdgeInsets.all(16.0),
+              margin: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -25,8 +25,8 @@ class EventView extends StatelessWidget {
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       event.title,
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
@@ -34,22 +34,23 @@ class EventView extends StatelessWidget {
                         horizontal: 16.0, vertical: 8.0),
                     child: Text(
                       event.date,
-                      style: TextStyle(fontSize: 18),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w900),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: double.infinity, // Max width of the card
                     height: 200,
                     child: Image.network(
                       event.imageUrl,
-                      fit: BoxFit.fitWidth, // Adjust the image fit
+                      fit: BoxFit.fitHeight, // Adjust the image fit
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       event.description,
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                       textAlign: TextAlign.justify,
                     ),
                   ),
