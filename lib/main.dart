@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bitnbuildfront/minigames/minigame_higher_lower/minigame_higher_lower.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MinigameHigherLower(question: 'Which was earlier???',),
     );
   }
 }
