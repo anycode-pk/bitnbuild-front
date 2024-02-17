@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MinigameGenericTile extends StatefulWidget {
-  const MinigameGenericTile({super.key, required this.tileContents});
+  const MinigameGenericTile({super.key, required this.tileContents, required this.tileEventId});
   final Widget tileContents;
+  final int tileEventId;
 
   @override
   State<MinigameGenericTile> createState() => _MinigameGenericTile();

@@ -27,17 +27,20 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
                 widget.question,
                 style:const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              MinigameImageTextTile(
-                    tileImage: const AssetImage('kazimierz-wielki.jpg'),
+              const MinigameImageTextTile(
+                    tileImage: AssetImage('kazimierz-wielki.jpg'),
                     tileText: 'kazimierz wielki',
-                    tileDate: DateTime.now()),
-              MinigameImageTextTile(
-                    tileImage: const AssetImage('mieszko-I.jpg'),
+                    tileEventId: 1,
+              ), 
+              const MinigameImageTextTile(
+                    tileEventId: 1,
+                    tileImage: AssetImage('mieszko-I.jpg'),
                     tileText: 'mieszko 1',
-                    tileDate: DateTime.now()),
-              MinigameImageTile(
-                    tileImage: const AssetImage('mieszko-I.jpg'),
-                    tileDate: DateTime.now()),
+              ),
+              const MinigameImageTile(
+                    tileEventId: 1,
+                    tileImage: AssetImage('mieszko-I.jpg'),
+              ),
             ],
          
           ),
