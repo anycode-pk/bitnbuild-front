@@ -1,7 +1,5 @@
+import 'package:bitnbuildfront/timeline/timeline_list.dart';
 import 'package:flutter/material.dart';
-
-import 'timeline_tile_widget.dart';
-import '../event.dart';
 
 class TimelineView extends StatelessWidget {
   const TimelineView({super.key});
@@ -12,15 +10,17 @@ class TimelineView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Timeline'),
       ),
-      body: ListView.builder(
-        itemCount: EventPlaceholder.list.length,
-        itemBuilder: (context, index) {
-          return TimelineTileWidget(
-            isFirst: index == 0,
-            isLast: index == EventPlaceholder.list.length - 1,
-            event: EventPlaceholder.list[index],
-          );
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 600),
+          child: const TimelineList(),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed functionality here
         },
+        child: const Icon(Icons.gamepad),
       ),
     );
   }

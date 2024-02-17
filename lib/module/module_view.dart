@@ -10,15 +10,12 @@ class ModuleView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Modules"),
       ),
-      body: const ModuleList(),
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 600),
+          child: const ModuleList(),
+        ),
+      ),
     );
   }
-}
-
-void main() {
-  runApp(
-    const MaterialApp(
-      home: ModuleView(),
-    ),
-  );
 }
