@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bitnbuildfront/minigames/minigame_higher_lower/minigame_higher_lower.dart';
 
 // Import your segmented list module file
 import 'module/module_view.dart';

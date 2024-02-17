@@ -50,6 +50,7 @@ class EventView extends StatelessWidget {
                     child: Text(
                       event.description,
                       style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
                 ],
