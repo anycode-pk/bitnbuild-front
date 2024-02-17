@@ -16,6 +16,12 @@ class TimelineView extends StatelessWidget {
           child: const TimelineList(),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed functionality here
+        },
+        child: const Icon(Icons.gamepad),
+      ),
     );
   }
 }
