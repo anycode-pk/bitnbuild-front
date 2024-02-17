@@ -10,7 +10,7 @@ class ModuleView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Modules"),
       ),
-      body: ModuleList(),
+      body: const ModuleList(),
     );
   }
 }

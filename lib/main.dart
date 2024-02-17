@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'module/module_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // Define routes for different parts of your app
-        '/': (context) => ModuleView(), // SegmentedListModule as initial route
+        '/': (context) => const ModuleView(), // SegmentedListModule as initial route
         // Add more routes if needed
       },
     );

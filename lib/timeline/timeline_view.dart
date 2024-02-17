@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class TimelineView extends StatelessWidget {
-  const TimelineView({super.key});
+  const TimelineView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,28 +29,37 @@ class TimelineView extends StatelessWidget {
             'Event 5'
           ];
           return TimelineTile(
-            alignment: TimelineAlign.manual,
-            lineXY: 0.3,
-            isFirst: index == 0,
-            isLast: index == 4,
-            indicatorStyle: const IndicatorStyle(
-              width: 20,
-              color: Colors.blue,
-              padding: EdgeInsets.all(6),
-            ),
-            startChild: Container(
-              constraints: const BoxConstraints(minWidth: 120),
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(dates[index]),
-            ),
-            endChild: Card(
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              child: ListTile(
-                title: Text(titles[index]),
-                subtitle: const Text('Event details...'),
+              alignment: TimelineAlign.center,
+              isFirst: index == 0,
+              isLast: index == 4,
+              indicatorStyle: const IndicatorStyle(
+                width: 20,
+                color: Colors.blue,
+                padding: EdgeInsets.all(6),
               ),
-            ),
-          );
+              beforeLineStyle: const LineStyle(
+                color: Colors.blue,
+                thickness: 2,
+              ),
+              startChild: Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  dates[index],
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              endChild: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  width: 200, // Fixed width for the card
+                  child: Card(
+                    child: ListTile(
+                      title: Text(titles[index]),
+                      subtitle: const Text('Event details...'),
+                    ),
+                  ),
+                ),
+              ));
         },
       ),
     );
