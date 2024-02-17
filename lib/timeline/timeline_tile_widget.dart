@@ -8,26 +8,30 @@ class TimelineTileWidget extends StatelessWidget {
   final bool isFirst;
   final bool isLast;
 
-  const TimelineTileWidget(
-      {super.key,
-      required this.event,
-      required this.isFirst,
-      required this.isLast});
+  const TimelineTileWidget({
+    Key? key,
+    required this.event,
+    required this.isFirst,
+    required this.isLast,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final Color primaryColor = theme.primaryColor;
+
     return TimelineTile(
       isFirst: isFirst,
       isLast: isLast,
-      alignment: TimelineAlign.center,
-      indicatorStyle: const IndicatorStyle(
+      alignment: TimelineAlign.manual,
+      lineXY: 0.3,
+      indicatorStyle: IndicatorStyle(
         width: 20,
-        color: Colors.blue,
-        padding: EdgeInsets.all(6),
+        color: primaryColor,
+        padding: const EdgeInsets.all(6),
       ),
-      beforeLineStyle: const LineStyle(
-        color: Colors.blue,
-        thickness: 2,
+      beforeLineStyle: LineStyle(
+        color: primaryColor,
       ),
       startChild: Align(
         alignment: Alignment.centerRight,
