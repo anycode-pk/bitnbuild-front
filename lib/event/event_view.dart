@@ -40,7 +40,7 @@ class EventView extends StatelessWidget {
                   ),
                   SizedBox(
                     width: double.infinity, // Max width of the card
-                    height: 200,
+                    height: 400,
                     child: Image.network(
                       event.imageUrl,
                       fit: BoxFit.fitHeight, // Adjust the image fit
