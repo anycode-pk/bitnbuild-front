@@ -39,18 +39,19 @@ class _MinigameGenericTile extends State<MinigameGenericTile> {
                 onTap: () {
                   if (hasFocus) {
                     focusNode.unfocus();
+                    widget.callback(0);
                   } else {
                     focusNode.requestFocus();
                     widget.callback(widget.tileEventId);
                   }
                 },
                 child: AnimatedScale(
-                    scale: hasFocus ? 1.05 : 1.0,
+                    scale: hasFocus && !widget.disabled ? 1.05 : 1.0,
                     curve: Curves.decelerate,
                     duration: const Duration(milliseconds: 60),
                     child: Card(
                       borderOnForeground: true,
-                      elevation: hasFocus ? 10.0 : 5.0,
+                      elevation: hasFocus && !widget.disabled ? 10.0 : 5.0,
                       margin: const EdgeInsets.all(16.0),
                       clipBehavior: Clip.antiAlias,
                       semanticContainer: true,

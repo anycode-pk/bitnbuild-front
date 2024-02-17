@@ -21,6 +21,23 @@ class MinigameHigherLower extends StatefulWidget {
 
 class _MinigameHigherLower extends State<MinigameHigherLower> {
   int _selectedId = 0;
+  bool _submitted = false;
+  Color _answerColor = Colors.blue;
+  
+  void _checkAnswer() {
+    setState(() {
+      if(!_submitted) {
+      if(_selectedId == widget.answerId) {
+        _answerColor = Colors.green;
+      }
+      else {
+        _answerColor = Colors.red;
+      }  
+    _submitted = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MinigameGeneric(
@@ -32,18 +49,25 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
             children: <Widget>[
               MinigameImageTextTile(
                 callback: (val) => setState(() => _selectedId = val),
-                disabled: false,
+                disabled: _submitted,
                 tileImage: AssetImage('kazimierz-wielki.jpg'),
                 tileText: 'kazimierz wielki',
                 tileEventId: 1,
               ),
               MinigameImageTextTile(
                 callback: (val) => setState(() => _selectedId = val),
-                disabled: true,
-                tileEventId: 1,
+                disabled: _submitted,
+                tileEventId: 2,
                 tileImage: AssetImage('mieszko-I.jpg'),
                 tileText: 'mieszko 1',
               ),
+              FilledButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll<Color>(_answerColor),
+                ),
+                onPressed: _checkAnswer,
+                child: Text("Submit"),
+              )
             ]));
   }
 }

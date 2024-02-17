@@ -19,12 +19,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      //home: const MinigameHigherLower(question: 'Which was earlier???', currentProgress: 7, maxProgress: 10),
+      //home: const MinigameHigherLower(answerId: 2, question: 'Which was earlier???', currentProgress: 7, maxProgress: 10),
       //home: const MinigameMatchPairs(question: 'Match Pairs!', currentProgress: 6, maxProgress: 10),
-      home: const MinigameTrivia(
-          question: 'kto zostawil polske murowanom',
-          currentProgress: 6,
-          maxProgress: 10),
+      home: const MinigameTrivia(answerId: 3,question: 'kto zostawil polske murowanom',currentProgress: 6,maxProgress: 10),
     );
   }
 }
