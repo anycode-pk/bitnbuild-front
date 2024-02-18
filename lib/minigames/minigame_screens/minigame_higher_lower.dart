@@ -73,12 +73,12 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
               },
               pageBuilder: (BuildContext context, Animation<double> animation,
                   Animation<double> secondaryAnimation) {
-                return getRandomNextGame(
-                    widget.currentProgress,
-                    widget.maxProgress,
-                    widget.currentScore,
-                    widget.moduleId,
-                    _answerColor == Colors.green);
+                return randomNextGame(
+                    currentProgress: widget.currentProgress,
+                    maxProgress: widget.maxProgress,
+                    currentScore: widget.currentScore,
+                    moduleId: widget.moduleId,
+                    wasPreviousAnswerCorrect: _answerColor == Colors.green);
               },
             ),
           );

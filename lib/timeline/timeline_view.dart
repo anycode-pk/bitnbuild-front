@@ -28,13 +28,12 @@ class TimelineView extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => 
-                        getRandomNextGame(
-                          0,
-                          10,
-                          0,
-                          moduleId,
-                          false,
-                        ) 
+                randomNextGame(
+                    currentProgress: 0,
+                    maxProgress: 10,
+                    currentScore: 0,
+                    moduleId: moduleId,
+                    wasPreviousAnswerCorrect: false)
 
                         ));
 

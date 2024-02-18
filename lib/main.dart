@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Your App Title',
+      title: 'Timeline of History',
       // Set the initial route to your segmented list module
       initialRoute: '/',
       routes: {
