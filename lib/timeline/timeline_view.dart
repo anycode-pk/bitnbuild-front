@@ -21,21 +21,23 @@ class TimelineView extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => 
-                        const MinigameTrivia(
-                            currentProgress: 1,
-                            currentScore: 0,
-                            answerId: 3,
-                            maxProgress: 10,
-                            question: 'dopasuj pary',)
-                        )
-          );
-        },
-        child: const Icon(Icons.gamepad),
-      ),
+      floatingActionButton: (moduleId != 1)
+          ? FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MinigameTrivia(
+                              currentProgress: 1,
+                              currentScore: 0,
+                              answerId: 3,
+                              maxProgress: 10,
+                              question: 'dopasuj pary',
+                            )));
+              },
+              child: const Icon(Icons.gamepad),
+            )
+          : null,
     );
   }
 }
