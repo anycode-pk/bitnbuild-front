@@ -7,10 +7,12 @@ class MinigameGeneric extends StatefulWidget {
       required this.question,
       required this.currentProgress,
       required this.maxProgress,
+      required this.currentScore,
       required this.minigameContent});
   final String question;
   final int currentProgress;
   final int maxProgress;
+  final int currentScore;
   final Widget minigameContent;
 
   @override

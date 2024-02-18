@@ -3,6 +3,7 @@ import 'package:bitnbuildfront/minigames/minigame_screens/minigame_generic.dart'
 
 import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_image_tile.dart';
 import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_date_tile.dart';
+import 'package:bitnbuildfront/minigames/minigame_screens/minigame_trivia.dart';
 
 class MinigameMatchPairs extends StatefulWidget {
   const MinigameMatchPairs(
@@ -10,11 +11,13 @@ class MinigameMatchPairs extends StatefulWidget {
       required this.question,
       required this.currentProgress,
       required this.tileIds,
+      required this.currentScore,
       required this.maxProgress});
   final String question;
   final int currentProgress;
   final List<int> tileIds;
   final int maxProgress;
+  final int currentScore;
 
   @override
   State<MinigameMatchPairs> createState() => _MinigameMatchPairs();
@@ -95,6 +98,38 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
         }
         _submitted = true;
       }
+      if(_submitted){
+        if (widget.currentProgress < widget.maxProgress) {
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return ScaleTransition(
+                  alignment: Alignment.center,
+                  scale: Tween<double>(begin: 0.99, end: 1).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: Curves.ease,
+                    ),
+                  ),
+                  child: child,
+                );
+              },
+              pageBuilder: (BuildContext context, Animation<double> animation,
+                  Animation<double> secondaryAnimation) {
+                return MinigameTrivia(
+                  currentProgress: widget.currentProgress + 1,
+                  currentScore: _answerColor == Colors.green ? widget.currentScore+1 : widget.currentScore,
+                  answerId: 3,
+                  maxProgress: 10,
+                  question: 'dopasuj pary',
+                );
+              },
+            ),
+          );
+        }
+      }
     });
   }
 
@@ -112,6 +147,7 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
         question: widget.question,
         currentProgress: widget.currentProgress,
         maxProgress: widget.maxProgress,
+        currentScore: widget.currentScore,
         minigameContent: Column(children: <Widget>[
           Expanded(
             child: Row(
