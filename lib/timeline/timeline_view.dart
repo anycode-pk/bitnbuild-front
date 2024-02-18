@@ -27,7 +27,6 @@ class TimelineView extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => 
                         const MinigameTrivia(
                             currentProgress: 1,
-                            currentScore: 0,
                             answerId: 3,
                             maxProgress: 10,
                             question: 'dopasuj pary',)
