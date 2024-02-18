@@ -63,7 +63,7 @@ class ImageNameData {
 Future<ImageNameData> getImageNameData(moduleId) async {
   ImageNameData res = ImageNameData();
   final response = await http.get(Uri.parse(
-      'https://shirotsuma.pythonanywhere.com/game/image-date/$moduleId/4'));
+      'https://shirotsuma.pythonanywhere.com/game/image-name/$moduleId/4'));
 
   final List<dynamic> dataJson = await jsonDecode(response.body);
   for (int i = 0; i < 4; i++) {
@@ -127,7 +127,7 @@ class TriviaData {
 Future<TriviaData> getTriviaData(moduleId) async {
   TriviaData res = TriviaData();
   final response = await http.get(Uri.parse(
-      'https://shirotsuma.pythonanywhere.com/game/higher-lower/$moduleId'));
+      'https://shirotsuma.pythonanywhere.com/game/trivia/$moduleId'));
 
   final List<dynamic> dataJson = await jsonDecode(response.body);
   res.correctAnswer = dataJson[0];
