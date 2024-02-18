@@ -1,19 +1,19 @@
 import 'package:bitnbuildfront/minigames/minigame_screens/minigame_get_random_game.dart';
 import 'package:bitnbuildfront/minigames/minigame_screens/minigame_results.dart';
+import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_text_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:bitnbuildfront/minigames/minigame_screens/minigame_generic.dart';
 
 import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_image_tile.dart';
-import 'package:bitnbuildfront/minigames/minigame_tiles/minigame_date_tile.dart';
 
-class MinigameMatchPairs extends StatefulWidget {
-  const MinigameMatchPairs(
+class MinigameMatchPairsName extends StatefulWidget {
+  const MinigameMatchPairsName(
       {super.key,
       required this.question,
       required this.currentProgress,
       required this.tileIds,
       required this.tileImages,
-      required this.tileDates,
+      required this.tileNames,
       required this.moduleId,
       required this.currentScore,
       required this.maxProgress});
@@ -21,16 +21,16 @@ class MinigameMatchPairs extends StatefulWidget {
   final int currentProgress;
   final List<int> tileIds;
   final Map<int, String> tileImages;
-  final Map<int, DateTime> tileDates;
+  final Map<int, String> tileNames;
   final int maxProgress;
   final int currentScore;
   final int moduleId;
 
   @override
-  State<MinigameMatchPairs> createState() => _MinigameMatchPairs();
+  State<MinigameMatchPairsName> createState() => _MinigameMatchPairsName();
 }
 
-class _MinigameMatchPairs extends State<MinigameMatchPairs> {
+class _MinigameMatchPairsName extends State<MinigameMatchPairsName> {
   int selectedIdLeft = 0;
   int selectedIdRight = 0;
   int lastClicked = 0; // 0 - nothing 1 - left  2 - right
@@ -218,11 +218,11 @@ class _MinigameMatchPairs extends State<MinigameMatchPairs> {
                         Expanded(
                           child: Column(
                             children: [
-                              MinigameDateTile(
+                              MinigameTextTile(
                                 callback: callback_right,
                                 disabled: pairedRight[i]!,
                                 tileEventId: i,
-                                tileDate: widget.tileDates[i]!,
+                                tileText: widget.tileNames[i]!,
                               ),
                               Text(pairedRight[i]! && whichInSeqRight[i] != null
                                   ? "${whichInSeqRight[i]}"
