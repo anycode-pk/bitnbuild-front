@@ -1,3 +1,3 @@
 # bitnbuild-front
 
-sister project is [https://github.com/anycode-pk/bitnbuild-back](here)
+sister project is [here](https://github.com/anycode-pk/bitnbuild-back)
