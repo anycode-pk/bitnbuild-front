@@ -27,7 +27,7 @@ class _MinigameResults extends State<MinigameResults> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
           Text("Your score: ${100* widget.currentScore / widget.maxProgress}%",
-          style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
           ),
         ]));
   }

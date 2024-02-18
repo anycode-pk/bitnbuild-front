@@ -102,10 +102,10 @@ class _MinigameMatchPairsName extends State<MinigameMatchPairsName> {
     setState(() {
       if (!_submitted) {
         if (_all_done) {
-          bool all_good = true;
+          bool allGood = true;
           pairIds
-              .forEach((key, value) => all_good = all_good && (key == value));
-          if (all_good) {
+              .forEach((key, value) => allGood = allGood && (key == value));
+          if (allGood) {
             _answerColor = Colors.green;
           } else {
             _answerColor = Colors.red;

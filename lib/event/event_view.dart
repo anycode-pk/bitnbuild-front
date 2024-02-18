@@ -4,7 +4,7 @@ import 'event.dart'; // Import the Event class
 class EventView extends StatelessWidget {
   final Event event;
 
-  const EventView({Key? key, required this.event}) : super(key: key);
+  const EventView({super.key, required this.event});
 
   @override
   Widget build(BuildContext context) {

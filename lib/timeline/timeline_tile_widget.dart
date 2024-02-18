@@ -9,11 +9,11 @@ class TimelineTileWidget extends StatelessWidget {
   final bool isLast;
 
   const TimelineTileWidget({
-    Key? key,
+    super.key,
     required this.event,
     required this.isFirst,
     required this.isLast,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

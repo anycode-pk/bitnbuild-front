@@ -39,7 +39,7 @@ class _MinigameSort extends State<MinigameSort> {
   List<Widget> _spawnChildren() {
     return <Widget>[
       MinigameImageTextTile(
-        key: Key('0'),
+        key: const Key('0'),
           callback: (val) => setState(() => _selectedId = val),
           disabled: _submitted,
           tileImageURL: 'https://picsum.photos/seed/picsum/200',
@@ -47,7 +47,7 @@ class _MinigameSort extends State<MinigameSort> {
           tileEventId: 1,
       ),
       MinigameImageTextTile(
-        key: Key('1'),
+        key: const Key('1'),
         callback: (val) => setState(() => _selectedId = val),
         disabled: _submitted,
           tileImageURL: 'https://picsum.photos/seed/picsum/200',
@@ -78,7 +78,7 @@ class _MinigameSort extends State<MinigameSort> {
               backgroundColor: MaterialStatePropertyAll<Color>(_answerColor),
             ),
             onPressed: _checkAnswer,
-            child: Text("Submit"),
+            child: const Text("Submit"),
           ),
         ]
       )

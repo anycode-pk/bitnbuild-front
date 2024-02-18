@@ -5,7 +5,7 @@ import '../event/event_view.dart';
 class TimelineEvent extends StatelessWidget {
   final Event event;
 
-  const TimelineEvent({Key? key, required this.event}) : super(key: key);
+  const TimelineEvent({super.key, required this.event});
 
   @override
   Widget build(BuildContext context) {

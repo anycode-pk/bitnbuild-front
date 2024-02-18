@@ -128,7 +128,7 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
                       MaterialStatePropertyAll<Color>(_answerColor),
                 ),
                 onPressed: _checkAnswer,
-                child: Text("Submit"),
+                child: const Text("Submit"),
               )
             ]));
   }

@@ -26,7 +26,7 @@ class _MinigameEmptyGame extends State<MinigameEmptyGame> {
         currentProgress: widget.currentProgress,
         maxProgress: widget.maxProgress,
         currentScore: widget.currentScore,
-        minigameContent: Icon(Icons.replay_circle_filled_sharp),
+        minigameContent: const Icon(Icons.replay_circle_filled_sharp),
         );
   }
 }

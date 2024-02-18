@@ -34,7 +34,7 @@ class _MinigameGeneric extends State<MinigameGeneric> {
                 for(int i = 0; i < widget.currentProgress; i++) {
                   Navigator.pop(context);
                 }
-                }, icon: Icon(Icons.close)),
+                }, icon: const Icon(Icons.close)),
               MinigameProgressTracker(
                   currentProgress: widget.currentProgress,
                   maxProgress: widget.maxProgress),
