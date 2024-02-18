@@ -78,6 +78,37 @@ class _MinigameTrivia extends State<MinigameTrivia> {
           );
         }
       }
+      else {
+        if(widget.currentProgress < widget.maxProgress) {
+          Navigator.push(context, 
+        PageRouteBuilder(
+          transitionsBuilder:
+(context, animation, secondaryAnimation, child) {
+  return ScaleTransition(
+    alignment: Alignment.center,
+    scale: Tween<double>(begin: 0.99, end: 1).animate(
+      CurvedAnimation(
+        parent: animation,
+        curve: Curves.ease,
+      ),
+    ),
+    child: child,
+  );
+},
+  pageBuilder: (BuildContext context,
+                Animation<double> animation,
+                Animation<double> secondaryAnimation) {
+
+                        return MinigameTrivia(
+                            currentProgress: widget.currentProgress+1,
+                            answerId: 3,
+                            maxProgress: 10,
+                            question: 'dopasuj pary',);
+                },
+  ),
+          );
+        }
+      }
     });
   }
 
@@ -132,6 +163,7 @@ class _MinigameTrivia extends State<MinigameTrivia> {
           FilledButton(
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll<Color>(_answerColor),
+
             ),
             onPressed: _checkAnswer,
             child: Text(_submitted ? "Next question" : "Submit"),

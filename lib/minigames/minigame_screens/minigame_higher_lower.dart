@@ -67,6 +67,7 @@ class _MinigameHigherLower extends State<MinigameHigherLower> {
             ),
           );
         }
+
       }
     });
   }
