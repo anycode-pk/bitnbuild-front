@@ -27,7 +27,7 @@ class _MinigameDateTile extends State<MinigameDateTile> {
         tileEventId: widget.tileEventId,
         tileContents: Center(
           child: Text(
-            "${widget.tileDate.month.toString()}/${widget.tileDate.year.toString()}",
+            widget.tileDate.year.toString(),
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),

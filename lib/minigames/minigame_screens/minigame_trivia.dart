@@ -1,3 +1,4 @@
+import 'package:bitnbuildfront/minigames/minigame_screens/minigame_get_random_game.dart';
 import 'package:bitnbuildfront/minigames/minigame_screens/minigame_results.dart';
 import 'package:flutter/material.dart';
 import 'package:bitnbuildfront/minigames/minigame_screens/minigame_generic.dart';
@@ -7,13 +8,17 @@ class MinigameTrivia extends StatefulWidget {
   const MinigameTrivia(
       {super.key,
       required this.question,
-      required this.answerId,
+      required this.answers,
+      required this.correctAnswer,
       required this.currentScore,
       required this.currentProgress,
+      required this.moduleId,
       required this.maxProgress});
   final String question;
-  final int answerId;
+  final String correctAnswer;
+  final List<String> answers;
   final int currentProgress;
+  final int moduleId;
   final int maxProgress;
   final int currentScore;
 
@@ -29,7 +34,7 @@ class _MinigameTrivia extends State<MinigameTrivia> {
   void _checkAnswer() {
     setState(() {
       if (!_submitted) {
-        if (_selectedId == widget.answerId) {
+        if (widget.answers[_selectedId] == widget.correctAnswer) {
           _answerColor = Colors.green;
         } else {
           _answerColor = Colors.red;
@@ -55,13 +60,13 @@ class _MinigameTrivia extends State<MinigameTrivia> {
               },
               pageBuilder: (BuildContext context, Animation<double> animation,
                   Animation<double> secondaryAnimation) {
-                return MinigameTrivia(
-                  currentProgress: widget.currentProgress + 1,
-                  currentScore: _answerColor == Colors.green ? widget.currentScore+1 : widget.currentScore,
-                  answerId: 3,
-                  maxProgress: 10,
-                  question: 'dopasuj pary',
-                );
+                return randomNextGame(
+                    currentProgress: widget.currentProgress,
+                    maxProgress: widget.maxProgress,
+                    currentScore: widget.currentScore,
+                    moduleId: widget.moduleId,
+                    wasPreviousAnswerCorrect: _answerColor == Colors.green);
+
               },
             ),
           );
@@ -100,14 +105,14 @@ class _MinigameTrivia extends State<MinigameTrivia> {
                     MinigameTextTile(
                       callback: (val) => setState(() => _selectedId = val),
                       disabled: _submitted,
-                      tileText: 'kazimierz wielki',
-                      tileEventId: 1,
+                      tileText: widget.answers[0],
+                      tileEventId: 0,
                     ),
                     MinigameTextTile(
                       callback: (val) => setState(() => _selectedId = val),
                       disabled: _submitted,
-                      tileText: 'kazimierz wielki',
-                      tileEventId: 2,
+                      tileText: widget.answers[1],
+                      tileEventId: 1,
                     ),
                   ],
                 )),
@@ -118,14 +123,14 @@ class _MinigameTrivia extends State<MinigameTrivia> {
                       MinigameTextTile(
                         callback: (val) => setState(() => _selectedId = val),
                         disabled: _submitted,
-                        tileText: 'kazimierz wielki',
-                        tileEventId: 3,
+                      tileText: widget.answers[2],
+                        tileEventId: 2,
                       ),
                       MinigameTextTile(
                         callback: (val) => setState(() => _selectedId = val),
                         disabled: _submitted,
-                        tileText: 'kazimierz wielki',
-                        tileEventId: 4,
+                      tileText: widget.answers[3],
+                        tileEventId: 3,
                       ),
                     ])),
               ])),
