@@ -7,10 +7,12 @@ class MinigameSort extends StatefulWidget {
       {super.key,
       required this.question,
       required this.currentProgress,
+      required this.currentScore,
       required this.maxProgress});
   final String question;
   final int currentProgress;
   final int maxProgress;
+  final int currentScore;
 
   @override
   State<MinigameSort> createState() => _MinigameSort();
@@ -59,6 +61,7 @@ class _MinigameSort extends State<MinigameSort> {
   Widget build(BuildContext context) {
     return MinigameGeneric(
         question: widget.question,
+        currentScore: widget.currentScore,
         currentProgress: widget.currentProgress,
         maxProgress: widget.maxProgress,
         minigameContent: Column(children: <Widget>[
